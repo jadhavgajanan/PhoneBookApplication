@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "db.driver",
+    "type": "java.lang.String",
+    "description": "A description for 'db.driver'"
+  },
+  {
+    "name": "db.password",
+    "type": "java.lang.String",
+    "description": "A description for 'db.password'"
+  }
+]}
