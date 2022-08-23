@@ -29,7 +29,7 @@ public class ContactServiceImpl implements ContactServiceI {
 
 	@Override
 	public Contact getContactById(Integer contactId) {
-	Contact contact = this.contactRepo.findByContactId(contactId);
+	Contact contact = this.contactRepo.findByContactId (contactId);
 		return contact;
 	}
 
@@ -42,6 +42,7 @@ public class ContactServiceImpl implements ContactServiceI {
 
 	@Override
 	public boolean updateContact(Contact contact) {
+		this.contactRepo.save(contact);
 		return true;
 	}
 

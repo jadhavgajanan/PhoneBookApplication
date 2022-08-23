@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -61,21 +62,21 @@ public class ContactController {
 		}
 	}
 	
-	@GetMapping("/getSigleContact")
-	public ResponseEntity<Contact> getSingleContact(Integer contactId){
+	@GetMapping("/getSingleContact/{contactId}")
+	public ResponseEntity<Contact> getSingleContact(@PathVariable Integer contactId){
 		Contact contactById = this.contactServiceI.getContactById(contactId);
 		
 		return new ResponseEntity<Contact>(contactById,HttpStatus.OK); 
 	}
 	
-	@DeleteMapping("/deleteContact")
-	public ResponseEntity<String> deleteContact(Integer contactId){
+	@DeleteMapping("/deleteContact/{contactId}")
+	public ResponseEntity<String> deleteContact(@PathVariable Integer contactId){
 		boolean deleteContact = this.contactServiceI.deleteContactById(contactId);
 		if(deleteContact==true) {
 			return new ResponseEntity<String>("Delete Contact successfully.",HttpStatus.OK);
 		}
 		else {
-			return new ResponseEntity<String>("Contact Not Deleted ",HttpStatus.OK);
+			return new ResponseEntity<String>("Contact Not Deleted ",HttpStatus.BAD_REQUEST);
 		}
 	}
 }

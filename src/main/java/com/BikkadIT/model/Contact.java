@@ -23,17 +23,23 @@ public class Contact {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name="CONTACT_ID")
 	private Integer contactId;
+    
     @Column (name="CONTACT_NAME")
 	private String contactName;
+    
     @Column (name="CONTACT_NUMBER")
 	private String contactNumber;
+    
     @Column (name="CONTACT_EMAIL")
 	private String contactEmail;
+    
     @Column (name="ACTIVE_SWITCH")
 	private Character activeSwitch;
+    
     @Column (name="CREATE_DATE",updatable = false)
     @CreationTimestamp
 	private LocalDate createDate;
+    
     @Column (name="UPDATE_DATE", insertable =false)
     @UpdateTimestamp
 	private  LocalDate updateDate;
