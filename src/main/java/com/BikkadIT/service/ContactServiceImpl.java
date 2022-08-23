@@ -28,8 +28,8 @@ public class ContactServiceImpl implements ContactServiceI {
 	}
 
 	@Override
-	public Optional<Contact> getContactById(Integer contactId) {
-		Optional<Contact> contact = this.contactRepo.findById(contactId);
+	public Contact getContactById(Integer contactId) {
+	Contact contact = this.contactRepo.findByContactId(contactId);
 		return contact;
 	}
 
@@ -38,6 +38,11 @@ public class ContactServiceImpl implements ContactServiceI {
 		this.contactRepo.deleteById(contactId);
 		return true;
 	
+	}
+
+	@Override
+	public boolean updateContact(Contact contact) {
+		return true;
 	}
 
 }
